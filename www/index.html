@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>True Shot CAM</title>
+<!--<link href="css/index.css" rel="stylesheet" type="text/css">-->
+<link href="css/index2.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/style.css" />
+<!-- <link rel="stylesheet" href="css/style320.css" media="(min-width: 241px) and (max-width: 320px)"/>
+<link rel="stylesheet" href="css/style480.css" media="(min-width: 321px) and (max-width: 480px)"/>
+<link rel="stylesheet" href="css/style540.css" media="(min-width: 481px) and (max-width: 540px)"/>
+<link rel="stylesheet" href="css/style600.css" media="(min-width: 541px) and (max-width: 600px)"/>
+<link rel="stylesheet" href="css/style800.css" media="(min-width: 601px) and (max-width: 800px)"/>
+<link rel="stylesheet" href="css/style1150.css" media="(min-width: 801px) and (max-width: 1150px)"/>
+<link rel="stylesheet" href="css/style1151.css" media="(min-width: 1151px)"/> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+	alert("Got deviceready");
+	var canvas2ImagePlugin = window.canvas2ImagePlugin;
+}
+
+function showonlyone(thechosenone) {
+	var newboxes = document.getElementsByTagName("div");
+	
+/*	var umail = localStorage.getItem("usermail");
+
+	if ((!umail) && (thechosenone != "newboxes8")){
+		thechosenone = "newboxes8";
+	}
+*/
+	for(var x=0; x<newboxes.length; x++) {
+		name = newboxes[x].getAttribute("class");
+		if (name == 'newboxes') {
+			if (newboxes[x].id == thechosenone) {
+				newboxes[x].style.display = 'block';
+			} else {
+				newboxes[x].style.display = 'none';
+			}
+		}
+	}
+}
+
+function amostrarl(){
+	var ok = 0;
+	var ckbox = document.getElementsByName('sh[]');
+ /*   for (var i=0; i < ckbox.length; i++){
+        if(ckbox[i].checked == true){
+        ok = 1;
+        }
+    }
+    if(ok == 0){
+    alert('indique al menos un mes');
+    return false;
+    } */
+	var sh0 = localStorage.getItem("lsystem");
+	var sh1 = localStorage.getItem("daytime");
+	var sh2 = localStorage.getItem("geoloc");
+	var sh3 = localStorage.getItem("gps");
+	var sh4 = localStorage.getItem("comm");
+	var sh5 = localStorage.getItem("userid");
+	var sh6 = localStorage.getItem("name");
+	var sh7 = localStorage.getItem("phone");
+	if (sh0 == null) {
+		ckbox[0].checked = true;
+	} else if (sh0 == "1") {
+		ckbox[0].checked = true;
+	} else {
+		ckbox[0].checked = false;
+	}
+	if (sh1 == null) {
+		ckbox[1].checked = true;
+	} else if (sh1 == "1") {
+		ckbox[1].checked = true;
+	} else {
+		ckbox[1].checked = false;
+	}
+	if (sh2 == null) {
+		ckbox[2].checked = true;
+	} else if (sh2 == "1") {
+		ckbox[2].checked = true;
+	} else {
+		ckbox[2].checked = false;
+	}
+	if (sh3 == null) {
+		ckbox[3].checked = true;
+	} else if (sh3 == "1") {
+		ckbox[3].checked = true;
+	} else {
+		ckbox[3].checked = false;
+	}
+	if (sh4 == null) {
+		ckbox[4].checked = true;
+	} else if (sh4 == "1") {
+		ckbox[4].checked = true;
+	} else {
+		ckbox[4].checked = false;
+	}
+	if (sh5 == null) {
+		ckbox[5].checked = true;
+	} else if (sh5 == "1") {
+		ckbox[5].checked = true;
+	} else {
+		ckbox[5].checked = false;
+	}
+	if (sh6 == null) {
+		ckbox[6].checked = true;
+	} else if (sh6 == "1") {
+		ckbox[6].checked = true;
+	} else {
+		ckbox[6].checked = false;
+	}
+	if (sh7 == null) {
+		ckbox[7].checked = true;
+	} else if (sh7 == "1") {
+		ckbox[7].checked = true;
+	} else {
+		ckbox[7].checked = false;
+	}
+	
+}
+
+function amostrars(){
+	var ok = 0;
+	var ckbox = document.getElementsByName('sh[]');
+
+	if (ckbox[0].checked == true) {
+		localStorage.setItem("lsystem", "1");
+	} else {
+		localStorage.setItem("lsystem", "0");
+	}
+	if (ckbox[1].checked == true) {
+		localStorage.setItem("daytime", "1");
+	} else {
+		localStorage.setItem("daytime", "0");
+	}
+	if (ckbox[2].checked == true) {
+		localStorage.setItem("geoloc", "1");
+	} else {
+		localStorage.setItem("geoloc", "0");
+	}
+	if (ckbox[3].checked == true) {
+		localStorage.setItem("gps", "1");
+	} else {
+		localStorage.setItem("gps", "0");
+	}
+	if (ckbox[4].checked == true) {
+		localStorage.setItem("comm", "1");
+	} else {
+		localStorage.setItem("comm", "0");
+	}
+	if (ckbox[5].checked == true) {
+		localStorage.setItem("userid", "1");
+	} else {
+		localStorage.setItem("userid", "0");
+	}
+	if (ckbox[6].checked == true) {
+		localStorage.setItem("name", "1");
+	} else {
+		localStorage.setItem("name", "0");
+	}
+	if (ckbox[7].checked == true) {
+		localStorage.setItem("phone", "1");
+	} else {
+		localStorage.setItem("phone", "0");
+	}
+}
+
+function sistemal(){
+
+	var trad0 = document.getElementById('t0');
+	var trad1 = document.getElementById('t1');
+	var trad2 = document.getElementById('t2');
+	var qrad0 = document.getElementById('q0');
+	var qrad1 = document.getElementById('q1');
+	var qrad2 = document.getElementById('q2');
+	var lsty = localStorage.getItem("lstype");
+	var lsqt = localStorage.getItem("lsqty");
+
+	if (lsty == null) {
+		trad0.checked = true;
+	} else if (lsty == "G") {
+		trad0.checked = true;
+	} else if (lsty == "D") {
+		trad1.checked = true;
+	} else {
+		trad2.checked = true;
+	}
+
+	if (lsqt == null) {
+		qrad0.checked = true;
+	} else if (lsqt == "3") {
+		qrad0.checked = true;
+	} else if (lsqt == "4") {
+		qrad1.checked = true;
+	} else {
+		qrad2.checked = true;
+	}
+	
+}
+
+function sistemas(){
+	var trad0 = document.getElementById('t0');
+	var trad1 = document.getElementById('t1');
+	var trad2 = document.getElementById('t2');
+	var qrad0 = document.getElementById('q0');
+	var qrad1 = document.getElementById('q1');
+	var qrad2 = document.getElementById('q2');
+	
+	if (trad0.checked == true) {
+		localStorage.setItem("lstype", "G");
+	} else if (trad1.checked == true) {
+		localStorage.setItem("lstype", "D");
+	} else {
+		localStorage.setItem("lstype", "C");
+	}
+	
+	if (qrad0.checked == true) {
+		localStorage.setItem("lsqty", "3");
+	} else if (qrad1.checked == true) {
+		localStorage.setItem("lsqty", "4");
+	} else {
+		localStorage.setItem("lsqty", "5");
+	}
+}
+
+function gstyle1(){
+	var prad0 = document.getElementById('p0');
+	var prad1 = document.getElementById('p1');
+	var prad2 = document.getElementById('p2');
+	var prad3 = document.getElementById('p3');
+	var crad0 = document.getElementById('c0');
+	var crad1 = document.getElementById('c1');
+	var crad2 = document.getElementById('c2');
+	var crad3 = document.getElementById('c3');
+	var srad0 = document.getElementById('s0');
+	var srad1 = document.getElementById('s1');
+	var srad2 = document.getElementById('s2');
+	var stps = localStorage.getItem("stpos");
+	var stcl = localStorage.getItem("stcol");
+	var stsz = localStorage.getItem("stsiz");
+
+	if (stps == null) {
+		prad0.checked = true;
+	} else if (stps == "UL") {
+		prad0.checked = true;
+	} else if (stps == "BL") {
+		prad1.checked = true;
+	} else if (stps == "BR") {
+		prad2.checked = true;
+	} else {
+		prad3.checked = true;
+	}
+
+	if (stcl == null) {
+		crad0.checked = true;
+	} else if (stcl == "BLACK") {
+		crad0.checked = true;
+	} else if (stcl == "WHITE") {
+		crad1.checked = true;
+	} else if (stcl == "BLUE") {
+		crad2.checked = true;
+	} else {
+		crad3.checked = true;
+	}
+	
+	if (stsz == null) {
+		srad0.checked = true;
+	} else if (stsz == "1X") {
+		srad0.checked = true;
+	} else if (stsz == "2X") {
+		srad1.checked = true;
+	} else {
+		srad2.checked = true;
+	}
+}
+
+function gstyle2(){
+	var prad0 = document.getElementById('p0');
+	var prad1 = document.getElementById('p1');
+	var prad2 = document.getElementById('p2');
+	var prad3 = document.getElementById('p3');
+	var crad0 = document.getElementById('c0');
+	var crad1 = document.getElementById('c1');
+	var crad2 = document.getElementById('c2');
+	var crad3 = document.getElementById('c3');
+	var srad0 = document.getElementById('s0');
+	var srad1 = document.getElementById('s1');
+	var srad2 = document.getElementById('s2');
+	
+	if (prad0.checked == true) {
+		localStorage.setItem("stpos", "UL");
+	} else if (prad1.checked == true) {
+		localStorage.setItem("stpos", "BL");
+	} else if (prad2.checked == true) {
+		localStorage.setItem("stpos", "BR");
+	} else {
+		localStorage.setItem("stpos", "UR");
+	}
+	
+	if (crad0.checked == true) {
+		localStorage.setItem("stcol", "BLACK");
+	} else if (crad1.checked == true) {
+		localStorage.setItem("stcol", "WHITE");
+	} else if (crad2.checked == true) {
+		localStorage.setItem("stcol", "BLUE");
+	} else {
+		localStorage.setItem("stcol", "RED");
+	}
+	
+	if (srad0.checked == true) {
+		localStorage.setItem("stsiz", "1X");
+	} else if (srad1.checked == true) {
+		localStorage.setItem("stsiz", "2X");
+	} else {
+		localStorage.setItem("stsiz", "3X");
+	}
+}
+
+function canvasize(){
+	var c = document.getElementById("canvas");
+	var ctx = c.getContext("2d");
+//	var x = screen.width;
+//	var txt = "";
+//  txt += "<p>Total width/height: " + screen.width + "*" + screen.height + "</p>";
+//	document.getElementById("demo").innerHTML = txt;
+
+var x = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+/*ctx.fillStyle = "#92B901";
+ctx.fillRect(50, 50,  100, 100);
+
+*/
+    if (x <= 320){
+		c.height = 300;
+		c.width = 300;
+	} else if (x <= 480) {
+		c.height = 321;
+		c.width = 321;
+	} else if (x <= 540) {
+		c.height = 481;
+		c.width = 481;
+	} else if (x <= 600) {
+		c.height = 541;
+		c.width = 541;
+	} else if (x <= 800) {
+		c.height = 601;
+		c.width = 601;
+	} else if (x <= 1150) {
+		c.height = 801;
+		c.width = 801;
+	} else {
+		c.height = 1151;
+		c.width = 1151;
+	}
+}
+
+function loginTsc(){
+	var reason = "";
+	var valorCaja1 = document.getElementById('valor1').value;
+	var valorCaja2 = document.getElementById('valor2').value;
+
+	reason += validateEmpty(valorCaja1,"Email");
+	reason += validateEmpty(valorCaja2,"Password");
+	reason += validateEmail(valorCaja1);
+
+	if (reason == ""){
+//	alert('antes del $post');
+        $.post("http://52.27.166.243/getlogin2.php",
+        {
+			email : valorCaja1,
+			password : valorCaja2 
+		},
+        function(data,status){
+			datalog = data;
+ //          alert("Data: " + data + "\nStatus: " + status + "datalog: " + datalog);
+			if (datalog == "NO") {
+				alert ('Please enter a valid User Id and Password');
+			} else {
+				var n = datalog.search("%%");
+				var l = datalog.length;
+				var usrn = datalog.substring(0, n);
+				var phon = datalog.substring(n+2);
+//				alert('User Name: ' + usrn + ', phone number: ' + phon);
+				localStorage.setItem("usermail", valorCaja1);
+				localStorage.setItem("username", usrn);
+				localStorage.setItem("userphone", phon);
+				setDefault();
+				showonlyone('newboxes1');
+			}
+        });
+	}
+}
+
+function newAccount(){
+	var reason = "";
+	var uid = document.getElementById('id1').value;
+	var pw1 = document.getElementById('id2').value;
+	var pw2 = document.getElementById('id3').value;
+	var nam = document.getElementById('id4').value;
+	var pho = document.getElementById('id5').value;
+	reason += validateEmpty(uid,"Email");
+	reason += validateEmail(uid);
+	reason += validatePwd(pw1,pw2);
+	reason += validateEmpty(nam,"Name");
+	reason += validateEmpty(pho,"Phone");
+	
+
+	if (reason == ""){
+	alert('antes del $post');
+        $.post("http://52.27.166.243/new_account2.php",
+        {
+			var1 : uid,
+			var2 : pw1,
+			var3 : nam,
+			var4 : pho
+		},
+        function(data,status){
+			datalog = data;
+ //          alert("Data: " + data + "\nStatus: " + status + "datalog: " + datalog);
+			if (datalog == "NO") {
+				alert ('User already exists in True Shot CAM');
+			} else {
+//				var n = datalog.search("%%");
+//				var l = datalog.length;
+//				var usrn = datalog.substring(0, n);
+//				var phon = datalog.substring(n+2);
+//				alert('User Name: ' + usrn + ', phone number: ' + phon);
+				localStorage.setItem("usermail", uid);
+				localStorage.setItem("username", nam);
+				localStorage.setItem("userphone", pho);
+				setDefault();
+				showonlyone('newboxes1');
+			}
+        });
+	}
+}
+
+function validateEmpty(fld,fldname) {
+    var error = "";
+	if (fld == "") {
+		alert ('Please enter all the fields');
+        error = "The required field has not been filled in.\n";
+    }
+    return error;   
+}
+function validatePwd(fld1,fld2) {
+    var error = "";
+	if (fld1 == "") {
+		alert ('Please enter all the fields');
+        error = "The User Password cannot be blank.\n";
+    } else if (fld1 != fld2) {
+		alert ('Password and Password confirmation do not match');
+        error = "Password and Password confirmation do not match.\n";
+	}
+    return error;   
+}
+
+function trim(s){
+  return s.replace(/^\s+|\s+$/, '');
+} 
+function validateEmail(fld) {
+    var error="";
+    var tfld = trim(fld);	// value of field with whitespace trimmed off
+    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/ ;
+    var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/ ;
+ //   alert (tfld);
+    if (!emailFilter.test(tfld)) {              //test email for illegal characters
+		alert ('Please enter a valid email address');
+        error = "Please enter a valid email address";
+    } else if (fld.match(illegalChars)) {
+		alert ('The email address contains illegal characters');
+        error = "The email address contains illegal characters";
+    }
+//	alert ('antes del return, error= ' + error);
+    return error;
+}
+function setDefault () {
+	localStorage.setItem("lsystem", "1");
+	localStorage.setItem("daytime", "1");
+	localStorage.setItem("geoloc", "1");
+	localStorage.setItem("gps", "1");
+	localStorage.setItem("comm", "1");
+	localStorage.setItem("userid", "1");
+	localStorage.setItem("name", "1");
+	localStorage.setItem("phone", "1");
+	localStorage.setItem("lstype", "G");
+	localStorage.setItem("stpos", "UL");
+	localStorage.setItem("stcol", "BLACK");
+	localStorage.setItem("stsiz", "1X");
+	localStorage.setItem("lsqty", "3");
+	localStorage.setItem("latlon", "LAT-LON");
+	localStorage.setItem("gpsdir1", "DIR1");
+	localStorage.setItem("gpsdir2", "DIR2");
+	localStorage.setItem("gpsdir3", "DIR3");
+}
+function buscaGeo() {
+	var ltln = localStorage.getItem("latlon");
+	
+	if (navigator.geolocation) {
+//		navigator.geolocation.getCurrentPosition(function () {}, function () {}, {});
+		gps2 = "OK";
+//		var location_timeout = setTimeout("golocFail()", 10000);
+//		navigator.geolocation.getCurrentPosition(app.showPosition, app.posFail, {maximumAge:66000, timeout:10000});
+		var geo = navigator.geolocation;
+		geo.getCurrentPosition(showLocation, showError);
+	}
+}
+
+function showLocation(position) {
+	var lat = position.coords.latitude;
+	var lng = position.coords.longitude;
+	var igps = "Cooords: " + lat + ", " + lng;
+	localStorage.setItem("latlon", igps);
+	
+// Rutina de Google Maps
+	var dir = " ";
+	var lon = lng;
+	var latlng = new google.maps.LatLng(lat, lon);
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode({"latLng": latlng}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			if (results[0]) {
+				dir = results[0].formatted_address;
+// Rutina jquery para separar la direccion
+var dir1 = "";
+var dir2 = "";
+var dir3 = "";
+var address_components = results[0].address_components;
+var components={}; 
+jQuery.each(address_components, function(k,v1) {jQuery.each(v1.types, function(k2, v2){components[v2]=v1.long_name});})
+
+if (components.street_number && components.route) {
+	dir1 = components.street_number + ", " + components.route;
+} else if (components.street_number){
+	dir1 = components.street_number;
+} else if (components.route) {
+	dir1 = components.route;
+}
+localStorage.setItem("gpsdir1", dir1);
+if (components.locality && components.postal_code) {
+	dir2 = components.locality + ", " + components.postal_code;
+} else if (components.locality) {
+	dir2 = components.locality;
+} else if (components.postal_code) {
+	dir2 = components.postal_code;
+}
+localStorage.setItem("gpsdir2", dir2);
+if (components.administrative_area_level_1 && components.country) {
+	dir3 = components.administrative_area_level_1 + ", " + components.country;
+} else if (components.administrative_area_level_1) {
+	dir3 = components.administrative_area_level_1;
+} else if (components.administrative_area_level_1) {
+	dir3 = components.country;
+}
+localStorage.setItem("gpsdir3", dir3);
+// fin rutina jquery
+			} else {
+				dir = "No se ha podido obtener ninguna dirección en esas coordenadas";
+			}
+		} else {
+			dir = "El Servicio de Codificación Geográfica ha fallado con el siguiente error: " + status;
+		}
+	});
+
+// Fin rutina de Google Maps
+
+	
+	localStorage.setItem("gpsdir3", dir);
+}
+
+function showError(position) {
+	clearTimeout(location_timeout);
+	localStorage.setItem("latlon", "NO GPS");
+}
+
+function mySavingFunction(myCanvasId) {
+	canvas2ImagePlugin.saveImageDataToLibrary(
+		function(msg){
+			alert(msg);
+			alert("Saving image is successful!");
+		}, 
+		function(err){
+			alert(err);
+		}, 
+		myCanvasId
+	);
+}
+</script> 
+</head>
+ 
+<body onload="showonlyone('newboxes1');">
+
+<div class="newboxes" id="newboxes1">
+<div id="container">
+	<br><br><br>
+	<h1>True Shot CAM</h1>
+	<br><br>
+	<div class="app1">
+		<p><a href="#" onclick="showonlyone('newboxes2');"><img class="resize" src="img/TSC Logo.png" alt="" title="" /></a></p>
+		<br><br><br>
+		<button class="submit" type="submit" onclick="buscaGeo();canvasize();showonlyone('newboxes2');">Camera</button>
+		<br><br><br>
+		<button class="submit1" type="submit" onclick="showonlyone('newboxes3');">Preview</button>
+		<br><br><br>
+		<button class="submit2" type="submit" onclick="showonlyone('newboxes4');">Settings</button>
+		<br><br><br>
+		<button class="submit3" type="submit" onclick="showonlyone('newboxes8');">Log In/Log Out</button>
+	</div>
+	<br><br>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes2" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			Camera
+		</div>
+		<div id="titc">
+			&nbsp;
+		</div>
+	</div>
+	<div class="app5">
+	<div id="content" style="margin-top:10px; height:450px;">
+		<canvas id="canvas"></canvas>
+		<br>
+		<button class="submit" id="takePhoto" class="link">TAKE PHOTO</button>
+		<br><br><br>
+		<button class="submit2" type="submit" onclick="mySavingFunction(canvas)">SAVE PHOTO</button>
+<!--		<button class="submit" id="sendPhoto" class="link">SAVE PHOTO</button>-->
+	</div>
+	</div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes3" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			Preview
+		</div>
+		<div id="titc">
+			&nbsp;
+		</div>
+	</div>
+	<div class="app5">
+		<div id="content" style="margin-top:10px; height:460px;">
+<!--		<button onclick="capturePhoto();">Capture Photo</button><br> -->
+			<img id="image" src="" style="display:none;width:100%;">
+			<br>
+		</div>
+		<button class="submit1" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Refresh</button><br>
+	</div>
+</div>
+</div>	
+
+<div class="newboxes" id="newboxes4" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			Settings
+		</div>
+		<div id="titc">
+		
+		</div>
+	</div>
+	<div class="app3">
+		<br><br><br>
+		<b>GENARAL</b>
+		<br><br>
+		<a href="#" onclick="amostrarl();showonlyone('newboxes5');">Elements to Show</a><br>
+	</div>
+	<div class="app3">
+		<b>LINEAR SYSTEM</b>
+		<br><br>
+		<a href="#" onclick="sistemal();showonlyone('newboxes6');">Linear System Details</a><br>
+	</div>
+	<div class="app3">
+		<b>STAMP</b>
+		<br><br>
+		<a href="#" onclick="gstyle1();showonlyone('newboxes7');">Stamp Location,Color & Size</a><br>
+	</div>
+	<div class="app3">
+		<b>CONTACT US</b>
+		<br><br>
+		<a href="comments.html">Send your Comments</a><br>
+	</div>
+	<div class="app3">
+		<b>ABOUT US</b>
+		<br><br>
+		<a href="whatwedo_mobile.html">Who we are</a><br>
+	</div>
+	<div class="app3">
+		<b>TERMS AND CONDITIONS</b>
+		<br><br>
+		<a href="agreements_mobile.html">Terms</a><br>
+	</div>
+	<div class="app3">
+		<b>COMMING SOON...</b>
+		<br><br>
+		Verify Photos<br><br>
+		Album in Server<br>
+	</div>
+	<div class="app3"></div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes5" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="amostrars();showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			TSC Stamp
+		</div>
+		<div id="titc">
+			<br><a href="#" onclick="amostrars();showonlyone('newboxes4');"><&nbsp;Settings</a>
+		</div>
+	</div>
+	<div class="app3">
+		<br><br><br>
+		<b>SELECT ELEMENTS TO SHOW</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="checkbox" name="sh[]"> Linear System<br><br>
+			<input type="checkbox" name="sh[]"> Date and Time<br><br>
+			<input type="checkbox" name="sh[]"> Geographic Location<br><br>
+			<input type="checkbox" name="sh[]"> GPS Coordinates<br><br>
+			<input type="checkbox" name="sh[]"> Comments<br><br>
+			<input type="checkbox" name="sh[]"> User Id<br><br>
+			<input type="checkbox" name="sh[]"> User Name<br><br>
+			<input type="checkbox" name="sh[]"> User Phone Number<br><br>
+		</form>
+	</div>
+	<div class="app3"></div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes6" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="sistemas();showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			Linear System
+		</div>
+		<div id="titc">
+			<br><a href="#" onclick="sistemas();showonlyone('newboxes4');"><&nbsp;Settings</a>
+		</div>
+	</div>
+	<div class="app3">
+		<br><br><br>
+		<b>CHOSE LINEAR SYSTEM TYPE</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="radio" name="type" id="t0" value="grid"> Grid - Horizontal and Vertical lines<br>
+			<input type="radio" name="type" id="t1" value="diamond"> Diamond - Diagonal lines<br>
+			<input type="radio" name="type" id="t2" value="circle"> Circle - Concentric Circles<br>
+		</form>
+	</div>
+	<div class="app3">
+		<br>
+		<b>SELECT THE NUMBER OF LINES OR CIRCLES</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="radio" name="qty" id="q0" value="3"> 3<br>
+			<input type="radio" name="qty" id="q1" value="4"> 4<br>
+			<input type="radio" name="qty" id="q2" value="5"> 5<br>
+		</form>
+	</div>
+	<div class="app3"></div>
+</div>
+</div>	
+
+<div class="newboxes" id="newboxes7" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+			<br><a href="#" onclick="gstyle2();showonlyone('newboxes1');"><&nbsp;Home</a>
+		</div>
+		<div id="titb">
+			General Style
+		</div>
+		<div id="titc">
+			<br><a href="#" onclick="gstyle2();showonlyone('newboxes4');"><&nbsp;Settings</a>
+		</div>
+	</div>
+	<div class="app3">
+		<br><br><br>
+		<b>STAMP POSITION</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="radio" name="position" id="p0" value="ul"> Upper Left<br>
+			<input type="radio" name="position" id="p1" value="bl"> Bottom Left<br>
+			<input type="radio" name="position" id="p2" value="br"> Bottom Right<br>
+			<input type="radio" name="position" id="p3" value="ur"> Upper Right<br>
+		</form>
+	</div>
+	<div class="app3">
+		<br>
+		<b>STAMP AND LINES COLOR</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="radio" name="color" id="c0" value="black"> Black<br>
+			<input type="radio" name="color" id="c1" value="white"> White<br>
+			<input type="radio" name="color" id="c2" value="blue"> Blue<br>
+			<input type="radio" name="color" id="c3" value="red"> Red<br>
+		</form>
+	</div>
+	<div class="app3">
+		<br>
+		<b>FONT SIZE</b>
+		<br>
+	</div>
+	<div class="app3">
+		<form>
+			<input type="radio" name="size" id="s0" value="1x"> Normal<br>
+			<input type="radio" name="size" id="s1" value="2x"> 2X<br>
+			<input type="radio" name="size" id="s2" value="3x"> 3X<br>
+		</form>
+	</div>
+	<div class="app3"></div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes8" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+		</div>
+		<div id="titb">
+			TSC Login
+		</div>
+		<div id="titc">
+		</div>
+	</div>
+	<div class="app2">
+		<br><br><br>
+		<p>Please enter the following data</p>
+		<input class="tc1" name="userid" type="email" placeholder="Email Address" id="valor1" /><br><br>
+		<input class="tc1" id="valor2" name="password" type="text" placeholder="Password" /><br><br><br>
+<!--		<button class="submit" onclick="loginTsc($('#valor1').val(), $('#valor2').val());return false;">Sign In</button><br><br><br>-->
+		<button class="submit" onclick="loginTsc();">Sign In</button><br><br><br>
+		<button class="submit1" onclick="showonlyone('newboxes9');">Create Account</button><br><br><br>
+		<button class="submit2" onclick="showonlyone('newboxes1');">Cancel</button><br><br>
+	</div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes9" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+		</div>
+		<div id="titb">
+			Create an Account
+		</div>
+		<div id="titc">
+		</div>
+	</div>
+	<div class="app2">
+		<br><br><br>
+		<p>Enter the following data to access</p>
+		<input class="tc1" id="id1" name="userid" type="email" placeholder="Email Address"><br><br>
+		<input class="tc1" id="id2" name="password" type="password" placeholder="Password"><br><br>
+		<input class="tc1" id="id3" name="password" type="password" placeholder="Password Confirmation"><br><br>
+		<input class="tc1" id="id4" name="name" type="text" placeholder="Name"><br><br>
+		<input class="tc1" id="id5" name="Phone" type="text" placeholder="Phone Number"><br><br>
+		<button class="submit1" onclick="newAccount()">Create</button><br><br><br>
+		<button class="submit2" onclick="showonlyone('newboxes1');">Cancel</button><br><br>
+	</div>
+</div>
+</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/index2.js"></script>
+	<script type="text/javascript">app.initialize();</script>
+</body>
+</html>
