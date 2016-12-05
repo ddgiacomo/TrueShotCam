@@ -6,7 +6,7 @@
         id        = "com.rd3solutions.asrvd"
         version   = "1.0.0">
 
-    <name>TSC-2</name>
+    <name>TSC-1</name>
 
     <description>
         True Shot CAM
@@ -97,7 +97,7 @@
 <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />-->
 <plugin name="cordova-plugin-camera" />
 <plugin name="cordova-plugin-geolocation" />
-<plugin name="org.devgeeks.canvas2imageplugin" spec="0.6.0" source="pgb" />
+<plugin name="cordova-plugin-canvas2image" />
     <!-- Define app splash screen for each platform. -->
 <!--
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
