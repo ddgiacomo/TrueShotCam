@@ -21,7 +21,6 @@
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-	alert("Got deviceready");
 	var canvas2ImagePlugin = window.canvas2ImagePlugin;
 }
 
@@ -334,24 +333,20 @@ var x = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
 
-/*ctx.fillStyle = "#92B901";
-ctx.fillRect(50, 50,  100, 100);
-
-*/
     if (x <= 320){
-		c.height = 300;
+		c.height = 420;
 		c.width = 300;
 	} else if (x <= 480) {
-		c.height = 321;
+		c.height = 480;
 		c.width = 321;
 	} else if (x <= 540) {
 		c.height = 481;
 		c.width = 481;
 	} else if (x <= 600) {
-		c.height = 541;
+		c.height = 600;
 		c.width = 541;
 	} else if (x <= 800) {
-		c.height = 601;
+		c.height = 600;
 		c.width = 601;
 	} else if (x <= 1150) {
 		c.height = 801;
@@ -572,7 +567,6 @@ localStorage.setItem("gpsdir3", dir3);
 
 // Fin rutina de Google Maps
 
-	
 	localStorage.setItem("gpsdir3", dir);
 }
 
@@ -584,7 +578,7 @@ function showError(position) {
 function mySavingFunction(myCanvasId) {
 	canvas2ImagePlugin.saveImageDataToLibrary(
 		function(msg){
-			alert(msg);
+//			alert(msg);
 			alert("Saving image is successful!");
 		}, 
 		function(err){
@@ -635,9 +629,10 @@ function mySavingFunction(myCanvasId) {
 	<div id="content" style="margin-top:10px; height:450px;">
 		<canvas id="canvas"></canvas>
 		<br>
-		<button class="submit" id="takePhoto" class="link">TAKE PHOTO</button>
-		<br><br><br>
-		<button class="submit2" type="submit" onclick="mySavingFunction(canvas)">SAVE PHOTO</button>
+		<button class="submit4s" type="submit" onclick="mySavingFunction(canvas)">SAVE PHOTO</button>
+		<button class="submit4t" id="takePhoto" class="link">TAKE PHOTO</button>
+<!--		<br><br><br>-->
+
 <!--		<button class="submit" id="sendPhoto" class="link">SAVE PHOTO</button>-->
 	</div>
 	</div>
