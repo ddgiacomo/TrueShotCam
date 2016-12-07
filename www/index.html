@@ -458,16 +458,22 @@ function resetP(){
 			if (datalog == "NO") {
 				alert ('User does not exist in True Shot CAM');
 			} else {
+				var n = datalog.search("%%");
+				var l = datalog.length;
+				var usrn = datalog.substring(0, n);
+				var phon = datalog.substring(n+2);
 				localStorage.setItem("usermail", uid);
-				//localStorage.setItem("username", nam);
-				//localStorage.setItem("userphone", pho);
+				localStorage.setItem("username", usrn);
+				localStorage.setItem("userphone", phon);
 				setDefault();
+				document.getElementById("pr1").value = "";
+				document.getElementById("pr2").value = "";
+				document.getElementById("pr3").value = "";
 				showonlyone('newboxes1');
 			}
         });
 	}
 }
-
 
 function validateEmpty(fld,fldname) {
     var error = "";
