@@ -459,8 +459,8 @@ function resetP(){
 				alert ('User does not exist in True Shot CAM');
 			} else {
 				localStorage.setItem("usermail", uid);
-				localStorage.setItem("username", nam);
-				localStorage.setItem("userphone", pho);
+				//localStorage.setItem("username", nam);
+				//localStorage.setItem("userphone", pho);
 				setDefault();
 				showonlyone('newboxes1');
 			}
@@ -946,7 +946,7 @@ function mySavingFunction(myCanvasId) {
 		<input class="tc1" id="pr1" name="userid" type="email" placeholder="Email Address"><br><br>
 		<input class="tc1" id="pr2" name="password" type="password" placeholder="Password"><br><br>
 		<input class="tc1" id="pr3" name="password" type="password" placeholder="Password Confirmation"><br><br>
-		<button class="submit1" onclick="resetP()">Reset</button><br><br><br>
+		<button class="submit1" onclick="resetP()">Accept</button><br><br><br>
 		<button class="submit2" onclick="showonlyone('newboxes1');">Cancel</button><br><br>
 	</div>
 </div>
