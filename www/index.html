@@ -438,6 +438,37 @@ function newAccount(){
 	}
 }
 
+function resetP(){
+	var reason = "";
+	var uid = document.getElementById('pr1').value;
+	var pw1 = document.getElementById('pr2').value;
+	var pw2 = document.getElementById('pr3').value;
+	reason += validateEmpty(uid,"Email");
+	reason += validateEmail(uid);
+	reason += validatePwd(pw1,pw2);
+
+	if (reason == ""){
+        $.post("http://52.27.166.243/password_reset.php",
+        {
+			var1 : uid,
+			var2 : pw1,
+		},
+        function(data,status){
+			datalog = data;
+			if (datalog == "NO") {
+				alert ('User does not exist in True Shot CAM');
+			} else {
+				localStorage.setItem("usermail", uid);
+				localStorage.setItem("username", nam);
+				localStorage.setItem("userphone", pho);
+				setDefault();
+				showonlyone('newboxes1');
+			}
+        });
+	}
+}
+
+
 function validateEmpty(fld,fldname) {
     var error = "";
 	if (fld == "") {
@@ -863,6 +894,8 @@ function mySavingFunction(myCanvasId) {
 		<p>Please enter the following data</p>
 		<input class="tc1" name="userid" type="email" placeholder="Email Address" id="valor1" /><br><br>
 		<input class="tc1" id="valor2" name="password" type="text" placeholder="Password" /><br><br><br>
+		<a href="#" onclick="showonlyone('newboxes9r');">&nbsp;Forgot your Password?</a>
+		<br><br>
 <!--		<button class="submit" onclick="loginTsc($('#valor1').val(), $('#valor2').val());return false;">Sign In</button><br><br><br>-->
 		<button class="submit" onclick="loginTsc();">Sign In</button><br><br><br>
 		<button class="submit1" onclick="showonlyone('newboxes9');">Create Account</button><br><br><br>
@@ -891,6 +924,29 @@ function mySavingFunction(myCanvasId) {
 		<input class="tc1" id="id4" name="name" type="text" placeholder="Name"><br><br>
 		<input class="tc1" id="id5" name="Phone" type="text" placeholder="Phone Number"><br><br>
 		<button class="submit1" onclick="newAccount()">Create</button><br><br><br>
+		<button class="submit2" onclick="showonlyone('newboxes1');">Cancel</button><br><br>
+	</div>
+</div>
+</div>
+
+<div class="newboxes" id="newboxes9r" style="display:none;">
+<div id="containerw">
+	<div id="tit">
+		<div id="tita">
+		</div>
+		<div id="titb">
+			Password Reset
+		</div>
+		<div id="titc">
+		</div>
+	</div>
+	<div class="app2">
+		<br><br><br>
+		<p>Enter the following data to access</p>
+		<input class="tc1" id="pr1" name="userid" type="email" placeholder="Email Address"><br><br>
+		<input class="tc1" id="pr2" name="password" type="password" placeholder="Password"><br><br>
+		<input class="tc1" id="pr3" name="password" type="password" placeholder="Password Confirmation"><br><br>
+		<button class="submit1" onclick="resetP()">Reset</button><br><br><br>
 		<button class="submit2" onclick="showonlyone('newboxes1');">Cancel</button><br><br>
 	</div>
 </div>
