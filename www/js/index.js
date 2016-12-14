@@ -114,7 +114,7 @@ img.onload = function(e) {
 			canvas.height=h;
 			ctx.drawImage(img,0,0,w,h);
 		}
-	} else {
+	} else {         // posible cambio aqui para las fotos en landscape
 		canvas.width=w;
 		canvas.height=h;
 		ctx.drawImage(img,0,0,w,h);
