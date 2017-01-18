@@ -20,8 +20,6 @@
 <script>
 
 document.addEventListener("deviceready", onDeviceReady, false);
-
-
 function onDeviceReady() {
 	var canvas2ImagePlugin = window.canvas2ImagePlugin;
 }
@@ -633,17 +631,17 @@ function mySavingFunction(myCanvasId) {
 
 <div class="newboxes" id="newboxes1">
 <div id="container">
-	<br><br><br>
+	<br><br><br><br><br><br><br><br>
 	<h1>True Shot CAM</h1>
 	<br>
 	<div class="app1">
 		<p><a href="#" onclick="showonlyone('newboxes2');"><img class="resize" src="img/TSC Logo.png" alt="" title="" /></a></p>
 		<br><br>
-		<button class="submit" type="submit" onclick="buscaGeo();canvasize();showonlyone('newboxes2');">Camera</button>
+		<button class="submit3" type="submit" onclick="buscaGeo();canvasize();showonlyone('newboxes2');">Camera</button>
 		<br><br><br>
-		<button class="submit1" type="submit" onclick="showonlyone('newboxes3');">Preview</button>
+		<button class="submit3" type="submit" onclick="showonlyone('newboxes3');">Preview</button>
 		<br><br><br>
-		<button class="submit2" type="submit" onclick="showonlyone('newboxes4');">Settings</button>
+		<button class="submit3" type="submit" onclick="showonlyone('newboxes4');">Settings</button>
 		<br><br><br>
 		<button class="submit3" type="submit" onclick="showonlyone('newboxes8');">Log In/Log Out</button>
 	</div>
@@ -695,10 +693,7 @@ function mySavingFunction(myCanvasId) {
 		<div id="content" style="margin-top:10px; height:460px;">
 <!--		<button onclick="capturePhoto();">Capture Photo</button><br> -->
 			<img id="image" src="" style="display:none;width:100%;">
-			<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!--			<p id="prev" style="font-size:20px; text-align:center;">
-				Press "Refresh" to select a Photo to Preview
-			</p>-->
+			<br>
 		</div>
 		<button class="submit1" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Refresh</button><br>
 	</div>
