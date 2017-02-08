@@ -268,7 +268,7 @@ if (sh0 == "1"){
 		var day = (d < 10) ? '0' + d : d;
 		//var m = date.getMonth() + 1;
 		//var month = (m < 10) ? '0' + m : m;
-		var m = month[d.getMonth()];
+		var m = month[date.getMonth()];
 		var yy = date.getYear();
 		var year = (yy < 1000) ? yy + 1900 : yy;
 		var h1 = date.getHours();
