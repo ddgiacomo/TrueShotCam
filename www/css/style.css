@@ -408,7 +408,7 @@ textarea {
 }
 
 @media all and (min-width: 551px) and (max-width: 650px){           /* nexus 7, galaxy 7 */
-	#container{ background-image: url(../img/tsc_03f.jpg); height: 800px;}
+	#container{ background-image: url(../img/tsc_03f.jpg); height: 900px;}
 	button.submit, button.submit1, button.submit2, button.submit3 {
 		font-size:24px;
 		height:55px;
