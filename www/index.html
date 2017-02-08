@@ -27,12 +27,12 @@ function onDeviceReady() {
 function showonlyone(thechosenone) {
 	var newboxes = document.getElementsByTagName("div");
 	
-	var umail = localStorage.getItem("usermail");
+/*	var umail = localStorage.getItem("usermail");
 
 	if ((!umail) && (thechosenone != "newboxes8")){
 		thechosenone = "newboxes8";
 	}
-
+*/
 	for(var x=0; x<newboxes.length; x++) {
 		name = newboxes[x].getAttribute("class");
 		if (name == 'newboxes') {
@@ -336,25 +336,38 @@ var x = window.innerWidth
     if (x <= 320){
 		c.height = 420;
 		c.width = 300;
+		ctx.font = "italic 16px sans-serif";
 	} else if (x <= 480) {
 		c.height = 480;
 		c.width = 321;
+		ctx.font = "italic 20px sans-serif";
 	} else if (x <= 540) {
 		c.height = 481;
 		c.width = 481;
+		ctx.font = "italic 20px sans-serif";
 	} else if (x <= 600) {
 		c.height = 600;
 		c.width = 541;
+		ctx.font = "italic 28px sans-serif";
 	} else if (x <= 800) {
 		c.height = 600;
 		c.width = 601;
+		ctx.font = "italic 28px sans-serif";
 	} else if (x <= 1150) {
 		c.height = 801;
 		c.width = 801;
+		ctx.font = "italic 28px sans-serif";
 	} else {
 		c.height = 1151;
 		c.width = 1151;
+		ctx.font = "italic 28px sans-serif";
 	}
+/*	var textoCamara = 'Press "Take photo" to take picture,';
+	ctx.fillText(textoCamara,10,100);
+	var textoCamara = 'and press save photo to save the';
+	ctx.fillText(textoCamara,10,140);
+	var textoCamara = 'to your device.';
+	ctx.fillText(textoCamara,10,180);*/
 }
 
 function loginTsc(){
@@ -537,12 +550,10 @@ function buscaGeo() {
 	var ltln = localStorage.getItem("latlon");
 	
 	if (navigator.geolocation) {
-//		navigator.geolocation.getCurrentPosition(function () {}, function () {}, {});
 		gps2 = "OK";
-//		var location_timeout = setTimeout("golocFail()", 10000);
-//		navigator.geolocation.getCurrentPosition(app.showPosition, app.posFail, {maximumAge:66000, timeout:10000});
 		var geo = navigator.geolocation;
-		geo.getCurrentPosition(showLocation, showError);
+		//geo.getCurrentPosition(showLocation, showError);
+		geo.watchCurrentPosition(showLocation, showError);
 	}
 }
 
@@ -665,7 +676,8 @@ function mySavingFunction(myCanvasId) {
 	<div class="app5">
 	<div id="content" style="margin-top:10px; height:450px;">
 		<canvas id="canvas"></canvas>
-		<br>
+		Press "Take photo" to take picture, and press save photo to save the image to your device.
+		<br><br>
 		<button class="submit4s" type="submit" onclick="mySavingFunction(canvas)">SAVE PHOTO</button>
 		<button class="submit4t" id="takePhoto" class="link">TAKE PHOTO</button>
 <!--		<br><br><br>-->
@@ -695,6 +707,8 @@ function mySavingFunction(myCanvasId) {
 			<img id="image" src="" style="display:none;width:100%;">
 			<br>
 		</div>
+		Press Refresh to preview photos from your album
+		<br><br>
 		<button class="submit1" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Refresh</button><br>
 	</div>
 </div>
