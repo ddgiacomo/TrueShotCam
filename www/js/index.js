@@ -250,17 +250,32 @@ if (sh0 == "1"){
 		ctx.fillText(texto3,x3,y3);
 	}
 	if (sh1 == "1"){
+		var month = new Array();
+			month[0] = "Jan";
+			month[1] = "Feb";
+			month[2] = "Mar";
+			month[3] = "Apr";
+			month[4] = "May";
+			month[5] = "Jun";
+			month[6] = "Jul";
+			month[7] = "Aug";
+			month[8] = "Sep";
+			month[9] = "Oct";
+			month[10] = "Nov";
+			month[11] = "Dec";
 		var date = new Date();
 		var d  = date.getDate();
 		var day = (d < 10) ? '0' + d : d;
-		var m = date.getMonth() + 1;
-		var month = (m < 10) ? '0' + m : m;
+		//var m = date.getMonth() + 1;
+		//var month = (m < 10) ? '0' + m : m;
+		var m = month[d.getMonth()];
 		var yy = date.getYear();
 		var year = (yy < 1000) ? yy + 1900 : yy;
 		var h1 = date.getHours();
 		var m1 = date.getMinutes();
 		var s1 = date.getSeconds();
-		var fecha = day + "/" + month + "/" + year + "  " + h1 + ":" + m1 + ":" + s1;
+		//var fecha = day + "/" + month + "/" + year + "  " + h1 + ":" + m1 + ":" + s1 ;
+		var fecha = m + " " + day + "," + year + "  " + h1 + ":" + m1 + ":" + s1;
 		y3+=lineSpace;
 		ctx.fillText(fecha,x3,y3);
 	}
