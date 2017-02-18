@@ -228,7 +228,7 @@ input.tc1 {
 	text-align: center;
 }
 #newboxes1 {
-	background-color:#ADD8E6;
+/*	background-color:#ADD8E6;*/
 	margin-left: 0px;
 	margin-right:0px;
 	padding-left: 0px;
@@ -265,6 +265,16 @@ input.tc1 {
 	font-size:14px;
 	color:white;
 }
+#titb1 {
+	height:40px;
+	width: 60%;
+	float: left;
+	background-color:#00008b;
+	font-size:20px;
+	color:white;
+	text-align: center;
+	padding-top:10px;
+}
 #tita  a:link {
 	color: white;
 	text-decoration:none;
@@ -290,7 +300,7 @@ input.tc1 {
 	text-decoration:none;
 }
 .newboxes {
-	background-color: #ADD8E6;
+/*	background-color: #ADD8E6;*/
 	display: block;
 	padding: 5px;
 }
@@ -322,42 +332,25 @@ h3 {
     text-align:center;
 	color:#00008b;
 }
+h4 {
+    font-size:16px;
+    font-weight:bold;
+    text-align:left;
+	color:black;
+}
+
 textarea {
 	width: 320px;
 	height: 300px;
 }
-/*
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+article{
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 10px;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 12px;
 }
-.event.listening {
-    background-color:#333333;
-    display:block;
-}
-.event.received {
-    background-color:#4B946A;
-    display:none;
-}
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
-*/
+
 @media all and (min-width: 200px) and (max-width: 340px){               /* iphone 5 */
 	#container{ background-image: url(../img/tsc_03b.jpg); }
 	button.submit, button.submit1, button.submit2, button.submit3 {
@@ -408,7 +401,7 @@ textarea {
 }
 
 @media all and (min-width: 551px) and (max-width: 650px){           /* nexus 7, galaxy 7 */
-	#container{ background-image: url(../img/tsc_03f.jpg); height: 900px;}
+	#container{ background-image: url(../img/tsc_03f.jpg); height: 800px;}
 	button.submit, button.submit1, button.submit2, button.submit3 {
 		font-size:24px;
 		height:55px;
