@@ -195,13 +195,13 @@ if (sh0 == "1"){
 	var marginBottom=100;
 	var lineSpace=10;
 	if (stsz == "2X"){
-        ctx.font="14px arial";
-		lineSpace=14;
+        ctx.font="12px arial";
+		lineSpace=12;
 		marginRight=220;
 		marginBottom=120;
-    } else if (stcl == "3X"){
-		ctx.font="18px arial";
-		lineSpace=18;
+    } else if (stsz == "3X"){
+		ctx.font="14px arial";
+		lineSpace=14;
 		marginRight=240;
 		marginBottom=140;
 	}
