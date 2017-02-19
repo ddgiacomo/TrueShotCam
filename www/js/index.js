@@ -191,7 +191,7 @@ if (sh0 == "1"){
 
 // Selecciono tamaño de la letra
 	ctx.font="10px arial";
-	var marginRight=200;
+	var marginRight=180;
 	var marginBottom=100;
 	var lineSpace=10;
 	if (stsz == "2X"){
@@ -199,7 +199,7 @@ if (sh0 == "1"){
 		lineSpace=14;
 		marginRight=220;
 		marginBottom=120;
-    } else if (stcl == "3x"){
+    } else if (stcl == "3X"){
 		ctx.font="18px arial";
 		lineSpace=18;
 		marginRight=240;
