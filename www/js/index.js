@@ -119,7 +119,7 @@ img.onload = function(e) {
 		canvas.height=h;
 		ctx.drawImage(img,0,0,w,h);
 	}
-//
+
 // * agrega lineas
 	ctx.lineWidth = 1;
 	var nL = parseInt(lsqt);
@@ -188,9 +188,23 @@ if (sh0 == "1"){
 // fin lineas
 // agrego stamp
 	var x3,y3;
+
+// Selecciono tamaño de la letra
+	ctx.font="10px arial";
 	var marginRight=200;
 	var marginBottom=100;
 	var lineSpace=10;
+	if (stsz == "2X"){
+        ctx.font="14px arial";
+		lineSpace=14;
+		marginRight=220;
+		marginBottom=120;
+    } else if (stcl == "3x"){
+		ctx.font="18px arial";
+		lineSpace=18;
+		marginRight=240;
+		marginBottom=140;
+	}
 // Determino la Posicion del stamp
 	if (stps == "UL"){
         x3 = 10;
@@ -231,7 +245,7 @@ if (sh0 == "1"){
 //	cw=tempCanvas.width=canvas.width;
 //	ch=tempCanvas.height=canvas.height;
 //	tempCtx.drawImage(canvas,0,0);
-	ctx.font="10px arial";
+//	ctx.font="10px arial";
 //	var textWidth=tempCtx.measureText(text).width;
 //	tempCtx.globalAlpha=.50;
 //	ctx.fillStyle='white';
