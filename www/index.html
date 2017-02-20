@@ -28,11 +28,11 @@ function showonlyone(thechosenone) {
 	var newboxes = document.getElementsByTagName("div");
 	
 	var umail = localStorage.getItem("usermail");
-/*
+
 	if ((!umail) && (thechosenone != "newboxes8")){
 		thechosenone = "newboxes8";
 	}
-*/
+
 	for(var x=0; x<newboxes.length; x++) {
 		name = newboxes[x].getAttribute("class");
 		if (name == 'newboxes') {
