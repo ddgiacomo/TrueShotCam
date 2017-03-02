@@ -202,7 +202,7 @@ if (sh0 == "1"){
     } else if (stsz == "3X"){
 		ctx.font="14px arial";
 		lineSpace=14;
-		marginRight=240;
+		marginRight=260;
 		marginBottom=140;
 	}
 // Determino la Posicion del stamp
