@@ -324,6 +324,7 @@ function gstyle2(){
 function canvasize(){
 	var c = document.getElementById("canvas");
 	var ctx = c.getContext("2d");
+	pWd = 1;
 //	var x = screen.width;
 //	var txt = "";
 //  txt += "<p>Total width/height: " + screen.width + "*" + screen.height + "</p>";
@@ -336,10 +337,12 @@ var x = window.innerWidth
     if (x <= 320){
 		c.height = 420;
 		c.width = 300;
+	    	pWd = 0;
 		ctx.font = "italic 16px sans-serif";
 	} else if (x <= 480) {
 		c.height = 450;
 		c.width = 321;
+		pWd = 0;
 		ctx.font = "italic 20px sans-serif";
 	} else if (x <= 540) {
 		c.height = 481;
