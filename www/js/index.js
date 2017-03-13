@@ -190,6 +190,23 @@ if (sh0 == "1"){
 	var x3,y3;
 
 // Selecciono tamaño de la letra
+if (pWd == 0) {
+	ctx.font="8px arial";
+	var marginRight=180;
+	var marginBottom=100;
+	var lineSpace=8;
+	if (stsz == "2X"){
+        ctx.font="10px arial";
+		lineSpace=10;
+		marginRight=210;
+		marginBottom=120;
+    } else if (stsz == "3X"){
+		ctx.font="12px arial";
+		lineSpace=12;
+		marginRight=240;
+		marginBottom=140;
+	}
+} else {
 	ctx.font="10px arial";
 	var marginRight=180;
 	var marginBottom=100;
@@ -204,7 +221,8 @@ if (sh0 == "1"){
 		lineSpace=14;
 		marginRight=260;
 		marginBottom=140;
-	}
+	}	
+}
 // Determino la Posicion del stamp
 	if (stps == "UL"){
         x3 = 10;
