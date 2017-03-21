@@ -203,7 +203,7 @@ if (pWd == 0) {
     } else if (stsz == "3X"){
 		ctx.font="12px arial";
 		lineSpace=12;
-		marginRight=240;
+		marginRight=230;
 		marginBottom=140;
 	}
 } else {
