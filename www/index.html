@@ -21,6 +21,9 @@ function showonlyone(thechosenone) {
 	if ((!umail) && (thechosenone != "newboxes8") && (thechosenone != "newboxes9")){
 		thechosenone = "newboxes8";
 	}
+	
+	canvasize();
+	
 	for(var x=0; x<newboxes.length; x++) {
 		name = newboxes[x].getAttribute("class");
 		if (name == 'newboxes') {
@@ -311,6 +314,7 @@ var x = window.innerWidth
 var y = window.innerHeight
 || document.documentElement.clientHeight
 || document.body.clientHeight;
+	alert("X: " + x + " Y: " + y);
 
     if (x <= 340){
 		c.height = 430;
