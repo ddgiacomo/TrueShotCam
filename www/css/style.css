@@ -444,7 +444,49 @@ article{
 }
 
 @media all and (min-width: 651px) and (max-width: 850px){             /* nexux 10, galaxy 10 */
-	#container{ background-image: url(../img/tsc_03.jpg); }
+	#container{ background-image: url(../img/tsc_03.jpg);height:800px; }
+	button.submit, button.submit1, button.submit2, button.submit3 {
+		font-size:24px;
+		height:45px;
+	}
+	input.tc1 {
+		height:35px; 
+		width:601px;
+		font-size: 24px;
+	}
+	.app2, .app3 { font-size:22px; }
+	#tita, #titc { font-size:16px; }
+	#titb { font-size:30px; }
+	h1 { font-size:46px; }
+	h2 { font-size:40px; }
+	h3 { font-size:34px; }
+	button.submit4 {
+		font-size:20px;
+		width:320px;
+		height:55px;
+	}
+	textarea {
+		width: 600px;
+		height: 300px;
+	}
+	button.submit4s{
+		font-size:18px;
+		width:240px;
+		height:45px;
+	}
+	button.submit4t {
+		font-size:18px;
+		width:240px;
+		height:45px;
+	}
+	img.resize{
+		max-width:30%;
+		max-height:30%;
+	}
+}
+
+@media all and (min-width: 851px) {             /* nexux 10, galaxy 10 */
+	#container{ background-image: url(../img/tsc_04.jpg);height:800px; }
 	button.submit, button.submit1, button.submit2, button.submit3 {
 		font-size:24px;
 		height:45px;
