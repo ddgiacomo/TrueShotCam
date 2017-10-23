@@ -444,7 +444,7 @@ article{
 }
 
 @media all and (min-width: 651px) and (max-width: 850px){             /* nexux 10, galaxy 10 */
-	#container{ background-image: url(../img/tsc_03.jpg);height:800px; }
+	#container{ background-image: url(../img/tsc_03.jpg);height:900px; }
 	button.submit, button.submit1, button.submit2, button.submit3 {
 		font-size:24px;
 		height:45px;
