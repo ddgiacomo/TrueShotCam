@@ -75,8 +75,8 @@ var xh = window.innerHeight
 || document.body.clientHeight;
 
 //	var w = x - 50;
-	var w = x * 0.80;
-	var wh = x * 0.80;
+	var w = x * 0.95;
+	var wh = x * 0.95;
 	var h = w;
 img.onload = function(e) {
 	var iw = img.width;
