@@ -303,10 +303,7 @@ function canvasize(){
 	var c = document.getElementById("canvas");
 	var ctx = c.getContext("2d");
 	pWd = 1;
-//	var x = screen.width;
-//	var txt = "";
-//  txt += "<p>Total width/height: " + screen.width + "*" + screen.height + "</p>";
-//	document.getElementById("demo").innerHTML = txt;
+
 var x = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
@@ -352,7 +349,9 @@ var y = window.innerHeight
 			ctx.font = "italic 28px sans-serif";
 		}
 	}
-	
+
+	c.height = y - 100;
+	c.width = x - 50;
 }
 function loginTsc(){
 	var reason = "";
