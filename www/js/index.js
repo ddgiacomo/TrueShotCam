@@ -110,9 +110,15 @@ img.onload = function(e) {
 		ctx.drawImage(img,0,0,w,h);
 	}
 */
-	canvas.width = w;
-	canvas.height = wh;
-	ctx.drawImage(img,0,0,w,wh);
+	if (iw < ih) {
+		canvas.width = w;
+		canvas.height = wh;
+		ctx.drawImage(img,0,0,w,wh);
+	} else {
+		canvas.width = wh;
+		canvas.height = w;
+		ctx.drawImage(img,0,0,wh,w);
+	}
 	
 // * agrega lineas
 	ctx.lineWidth = 1;
