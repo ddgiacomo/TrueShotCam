@@ -75,12 +75,19 @@ var xh = window.innerHeight
 || document.body.clientHeight;
 
 //	var w = x - 50;
-	var w = x -50;
-	var wh = xh - 150;
+//	var w = x -50;
+//	var wh = xh - 150;
 	var h = w;
 img.onload = function(e) {
 	var iw = img.width;
 	var ih = img.height;
+	if (iw < ih) {
+		var w = x - 50;
+		var wh = xh - 150;
+	} else {
+		var w = x - 150;
+		var wh = xh - 50;
+	}
 	var x1=img.width/w;
 	h = img.height/x1;
 	
@@ -110,15 +117,9 @@ img.onload = function(e) {
 		ctx.drawImage(img,0,0,w,h);
 	}
 */
-	if (iw < ih) {
-		canvas.width = w;
-		canvas.height = wh;
-		ctx.drawImage(img,0,0,w,wh);
-	} else {
-		canvas.width = wh;
-		canvas.height = w;
-		ctx.drawImage(img,0,0,wh,w);
-	}
+	canvas.width = w;
+	canvas.height = wh;
+	ctx.drawImage(img,0,0,w,wh);
 	
 // * agrega lineas
 	ctx.lineWidth = 1;
