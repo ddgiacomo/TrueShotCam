@@ -85,8 +85,8 @@ img.onload = function(e) {
 		var w = x - 50;
 		var wh = xh - 150;
 	} else {
-		var w = xh - 100;
-		var wh = x - 150;
+		var w = xh - 80;
+		var wh = x - 200;
 	}
 	var x1=img.width/w;
 	h = img.height/x1;
