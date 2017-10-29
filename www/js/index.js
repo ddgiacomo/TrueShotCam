@@ -75,20 +75,20 @@ var xh = window.innerHeight
 || document.body.clientHeight;
 
 //	var w = x - 50;
-//	var w = x -50;
-//	var wh = xh - 150;
+	var w = x -50;
+	var wh = xh - 150;
 	var h = w;
 img.onload = function(e) {
 	var iw = img.width;
 	var ih = img.height;
-	if (iw < ih) {
+/*	if (iw < ih) {
 		var w = x - 50;
 		var wh = xh - 150;
 	} else {
 		var w = xh - 80;
 		var wh = x - 150;
 	}
-	alert ("W= " + w + " wh= " + wh);
+*/	
 	var x1=img.width/w;
 	h = img.height/x1;
 	
