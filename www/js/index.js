@@ -81,13 +81,13 @@ var xh = window.innerHeight
 img.onload = function(e) {
 	var iw = img.width;
 	var ih = img.height;
-	if (iw < ih) {
+//	if (iw < ih) {
 		var w = x - 50;
 		var wh = xh - 150;
-	} else {
-		var w = x - 50;
-		var wh = xh - 150;
-	}
+//	} else {
+//		var w = x - 50//;
+//		var wh = xh - 150;
+//	}
 	
 	var x1=img.width/w;
 	h = img.height/x1;
