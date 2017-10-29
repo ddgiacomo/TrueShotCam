@@ -77,17 +77,19 @@ var xh = window.innerHeight
 //	var w = x - 50;
 //	var w = x -50;
 //	var wh = xh - 150;
-	var h = w;
+//	var h = w;
 img.onload = function(e) {
 	var iw = img.width;
 	var ih = img.height;
-//	if (iw < ih) {
+	if (iw < ih) {
 		var w = x - 50;
 		var wh = xh - 150;
-//	} else {
-//		var w = x - 50//;
-//		var wh = xh - 150;
-//	}
+		var h = w;
+	} else {
+		var w = xh - 50;
+		var wh = x - 150;
+		var h = w;
+	}
 	
 	var x1=img.width/w;
 	h = img.height/x1;
