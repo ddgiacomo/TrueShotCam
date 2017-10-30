@@ -263,8 +263,8 @@ if (pWd == 0) {
 	var texto=umail;
 	var texto2=uname;
 	var texto3=uphon;
-//	var texto4="True Shot CAM, version Android";
-	var texto4 = "X: " + x + " XH: " + xh + " IW: " + iw + " IH: " + ih;
+	var texto4="True Shot CAM, version Android";
+//	var texto4 = "X: " + x + " XH: " + xh + " IW: " + iw + " IH: " + ih;
 	var texto5="Coords: -67.02737, 10.60886";
 	var texto6="Direccion 1";
 	var texto7="Direccion 2";
